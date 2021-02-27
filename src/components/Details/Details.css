@@ -1,0 +1,12 @@
+.DetailsPart {
+	text-align: center;
+	width: 400px;
+	height: 700px;
+}
+.detailsImage img {
+	width: 100%;
+}
+.infoText {
+	display: flex;
+	justify-content: space-around;
+}

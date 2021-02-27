@@ -1,0 +1,27 @@
+.headerSection {
+	display: flex;
+	background-color: salmon;
+	justify-content: space-around;
+	align-items: center;
+	height: 100px;
+	border-radius: 10px;
+}
+.nav a {
+	text-decoration: none;
+	color: darkblue;
+	margin-left: 20px;
+	font-size: 20px;
+	padding: 10px;
+}
+.nav a:hover {
+	background-color: darkgrey;
+	color: blue;
+	border-radius: 20px;
+}
+.box {
+	background-color: tomato;
+	border-radius: 20px;
+	border: 1px solid gray;
+	padding: 10px;
+	text-align: center;
+}

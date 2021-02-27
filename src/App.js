@@ -1,25 +1,55 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useEffect, useState } from "react";
+import Header from "./components/Header/Header";
+import Country from "./components/Country/Country";
+import Details from "./components/Details/Details";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [countries, setCountries] = useState([]);
+	const [selectedCountry, setSelectedCountry] = useState([]);
+
+	const [detailsCountry, setDetailsCountry] = useState([]);
+
+	useEffect(() => {
+		fetch("https://restcountries.eu/rest/v2/all")
+			.then((response) => response.json())
+			.then((data) => setCountries(data));
+	}, []);
+
+	// Country selected:
+	const addHandler = (country) => {
+		const newAdd = [...selectedCountry, country];
+		setSelectedCountry(newAdd);
+		console.log(selectedCountry.length);
+	};
+
+	// Details:
+	const detailsHandler = (country) => {
+		const newDetails = country;
+		setDetailsCountry(newDetails);
+	};
+
+	return (
+		<div>
+			<Header selectedCountry={selectedCountry}></Header>
+
+			<div className="CountryAndDetails">
+				<div className="countriesPart">
+					{countries.map((country) => (
+						<Country
+							country={country}
+							addHandler={addHandler}
+							detailsHandler={detailsHandler}
+						></Country>
+					))}
+				</div>
+				<Details
+					className="DetailsPart"
+					detailsCountry={detailsCountry}
+				></Details>
+			</div>
+		</div>
+	);
 }
 
 export default App;

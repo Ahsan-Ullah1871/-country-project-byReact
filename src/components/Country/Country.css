@@ -1,0 +1,35 @@
+.countrySection {
+	width: 200px;
+	border: 1px solid red;
+	margin: 10px 20px;
+	text-align: center;
+	box-shadow: 10px 10px 10px black;
+	transition: transform 1s ease;
+	transform: perspective(750px) translate3d(0px, 0px, -250px)
+		rotateX(27deg) scale(0.9, 0.9);
+	border-radius: 20px;
+	border: 5px solid #e6e6e6;
+	box-shadow: 0 70px 40px -20px rgba(0, 0, 0, 0.2);
+	transition: 0.4s ease-in-out transform;
+}
+.countrySection:hover {
+	transform: translate3d(0px, 0px, -250px);
+}
+
+.image img {
+	width: 100%;
+	border-radius: 20px;
+}
+button {
+	background-color: gray;
+	color: goldenrod;
+	font-size: 18px;
+	padding: 5px;
+	border-radius: 10px;
+	cursor: pointer;
+	transition-delay: 2sec;
+}
+button:hover {
+	background-color: rgba(128, 128, 128, 0);
+	border: 1px solid goldenrod;
+}
